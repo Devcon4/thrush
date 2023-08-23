@@ -2,6 +2,8 @@ name: Checks
 on:
   pull_request:
     types: [opened, reopened, synchronize, edited]
+permissions:
+  issues: write
 env:
   TF_VAR_region: us-central1
   TF_VAR_zone: us-central1-c
