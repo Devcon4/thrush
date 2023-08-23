@@ -39,7 +39,7 @@ resource "google_container_node_pool" "web_pool" {
 
   node_config {
     preemptible  = false
-    machine_type = "e2-standard-2"
+    machine_type = "e2-small"
 
     service_account = data.google_service_account.thrush_prod_sa.email
     oauth_scopes = [
@@ -53,6 +53,6 @@ resource "google_container_node_pool" "web_pool" {
 
   autoscaling {
     min_node_count = 1
-    max_node_count = 3
+    max_node_count = 4
   }
 }

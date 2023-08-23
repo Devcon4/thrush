@@ -31,5 +31,5 @@ data "google_project" "thrush_core" {
   project_id = var.coreProjectId
 }
 data "google_service_account" "thrush_prod_sa" {
-  account_id="thrush-prod-sa"
+  account_id = "thrush-prod-sa"
 }
