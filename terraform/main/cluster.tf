@@ -1,8 +1,8 @@
 resource "google_container_cluster" "thrush_prod" {
-  provider = google-beta
-  name     = "thrush-prod"
-  location = var.region
-  network  = google_compute_network.main.name
+  provider   = google-beta
+  name       = "dc-thrush-prod"
+  location   = var.region
+  network    = google_compute_network.main.name
   subnetwork = google_compute_subnetwork.web.id
 
   remove_default_node_pool = true
@@ -32,11 +32,10 @@ resource "google_container_cluster" "thrush_prod" {
   }
 }
 
-
 resource "google_container_node_pool" "web_pool" {
   name     = "web-pool"
   location = var.region
-  cluster  = google_container_cluster.jumpstart-dev.name
+  cluster  = google_container_cluster.thrush_prod.name
 
   node_config {
     preemptible  = false

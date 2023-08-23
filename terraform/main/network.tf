@@ -1,14 +1,14 @@
 resource "google_compute_network" "main" {
-  name = "main"
+  name                    = "main"
   auto_create_subnetworks = false
-  routing_mode = "GLOBAL"
+  routing_mode            = "GLOBAL"
 }
 
 resource "google_compute_subnetwork" "web" {
-  name = "web"
+  name          = "web"
   ip_cidr_range = "10.10.10.0/24"
-  network = google_compute_network.main.id
-  region = var.region
+  network       = google_compute_network.main.id
+  region        = var.region
 
   secondary_ip_range = [
     {
@@ -25,7 +25,7 @@ resource "google_compute_subnetwork" "web" {
 }
 
 resource "google_compute_address" "web" {
-  name = "web"
+  name   = "web"
   region = var.region
 }
 
