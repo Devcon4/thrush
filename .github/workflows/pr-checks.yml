@@ -3,6 +3,10 @@ on:
   pull_request:
     types: [opened, reopened, synchronize, edited]
 env:
+  TF_VAR_region: us-central1
+  TF_VAR_zone: us-central1-c
+  TF_VAR_prodProjectId: 'dc-thrush-prod'
+  TF_VAR_coreProjectId: 'dc-thrush-core'
 defaults:
   run:
     working-directory: ./terraform/main/
