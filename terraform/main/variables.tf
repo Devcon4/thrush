@@ -8,3 +8,9 @@ variable "region" {
 variable "zone" {
   type = string
 }
+variable "prodProjectId" {
+  type = string
+}
+variable "coreProjectId" {
+  type = string
+}
